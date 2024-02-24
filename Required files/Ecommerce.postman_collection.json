@@ -1,0 +1,693 @@
+{
+	"info": {
+		"_postman_id": "3c1caa6c-95b1-44f3-ab14-8e3198ef8a41",
+		"name": "Ecommerce",
+		"description": "A public API to deliver joy to the world!",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32761096"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "bj",
+						"value": "jne",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"shiv@gmail.com\",\r\n  \"password\": \"12345678\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"register"
+					]
+				},
+				"description": "Get a random joke from the Joke API"
+			},
+			"response": [
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/random/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"random",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "113"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"71-VNBOQi/Xbnr7wXzgrcawCdOzIa0\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 27 Jul 2023 10:44:43 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 43,\n    \"jokeText\": \"What did one ocean say to the other ocean? Nothing, they just waved.\",\n    \"jokeType\": \"Wordplay\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"shiv@gmail.com\",\r\n  \"password\": \"12345678\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"login"
+					]
+				},
+				"description": "Responds with a single joke with the requested joke id.\n\nProvide the joke id as a path parameter."
+			},
+			"response": [
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/jokes/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"jokes",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "116"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"74-kA23G2G3Kf4yOO14k9OQqvGxCNg\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 27 Jul 2023 11:03:15 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 2,\n    \"jokeText\": \"Why did the scarecrow win an award? Because he was outstanding in his field.\",\n    \"jokeType\": \"Puns\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Categories",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjo4LCJpYXQiOjE3MDg3NjExNzV9.IA5Cj7_96JhXHZVsKJN4QIYpnNa0p2bm1C77-P2n1Pw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "productId",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "quantity",
+							"value": "5",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/categories",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"categories"
+					]
+				},
+				"description": "Filters all the jokes by their joke type.\n\nProvide a query parameter for `type` and if the type exists, then you should get back all the jokes that match that type."
+			},
+			"response": [
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/filter?type=Puns",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"filter"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "Puns"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "2028"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"7ec-yn5L0jBzbhpr0AjIJLwzjXXXPJ4\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 27 Jul 2023 10:57:19 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 2,\n        \"jokeText\": \"Why did the scarecrow win an award? Because he was outstanding in his field.\",\n        \"jokeType\": \"Puns\"\n    },\n    {\n        \"id\": 3,\n        \"jokeText\": \"I told my wife she was drawing her eyebrows too high. She looked surprised.\",\n        \"jokeType\": \"Puns\"\n    },\n    {\n        \"id\": 7,\n        \"jokeText\": \"Why don't some couples go to the gym? Because some relationships don't work out.\",\n        \"jokeType\": \"Puns\"\n    },\n    {\n        \"id\": 16,\n        \"jokeText\": \"I told my wife she was drawing her eyebrows too high. She looked surprised.\",\n        \"jokeType\": \"Puns\"\n    },\n    {\n        \"id\": 20,\n        \"jokeText\": \"Why don't some couples go to the gym? Because some relationships don't work out.\",\n        \"jokeType\": \"Puns\"\n    },\n    {\n        \"id\": 29,\n        \"jokeText\": \"I told my wife she was drawing her eyebrows too high. She looked surprised.\",\n        \"jokeType\": \"Puns\"\n    },\n    {\n        \"id\": 33,\n        \"jokeText\": \"Why don't some couples go to the gym? Because some relationships don't work out.\",\n        \"jokeType\": \"Puns\"\n    },\n    {\n        \"id\": 42,\n        \"jokeText\": \"I told my wife she was drawing her eyebrows too high. She looked surprised.\",\n        \"jokeType\": \"Puns\"\n    },\n    {\n        \"id\": 46,\n        \"jokeText\": \"Why don't some couples go to the gym? Because some relationships don't work out.\",\n        \"jokeType\": \"Puns\"\n    },\n    {\n        \"id\": 55,\n        \"jokeText\": \"I told my wife she was drawing her eyebrows too high. She looked surprised.\",\n        \"jokeType\": \"Puns\"\n    },\n    {\n        \"id\": 59,\n        \"jokeText\": \"Why don't some couples go to the gym? Because some relationships don't work out.\",\n        \"jokeType\": \"Puns\"\n    },\n    {\n        \"id\": 68,\n        \"jokeText\": \"I told my wife she was drawing her eyebrows too high. She looked surprised.\",\n        \"jokeType\": \"Puns\"\n    },\n    {\n        \"id\": 72,\n        \"jokeText\": \"Why don't some couples go to the gym? Because some relationships don't work out.\",\n        \"jokeType\": \"Puns\"\n    },\n    {\n        \"id\": 81,\n        \"jokeText\": \"I told my wife she was drawing her eyebrows too high. She looked surprised.\",\n        \"jokeType\": \"Puns\"\n    },\n    {\n        \"id\": 85,\n        \"jokeText\": \"Why don't some couples go to the gym? Because some relationships don't work out.\",\n        \"jokeType\": \"Puns\"\n    },\n    {\n        \"id\": 94,\n        \"jokeText\": \"I told my wife she was drawing her eyebrows too high. She looked surprised.\",\n        \"jokeType\": \"Puns\"\n    },\n    {\n        \"id\": 98,\n        \"jokeText\": \"Why don't some couples go to the gym? Because some relationships don't work out.\",\n        \"jokeType\": \"Puns\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Get Product",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjozLCJpYXQiOjE3MDg3NTk0NDZ9.Wda-ze6W1Gd4H9Wm4KxV7Ijq1-PhhR_LIM2xb-fqQhw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "text",
+							"value": "Ha ha ha",
+							"type": "text"
+						},
+						{
+							"key": "type",
+							"value": "Shiv",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/products/10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"products",
+						"10"
+					]
+				},
+				"description": "Create a new joke to add into the bank of jokes.\n\nNeed to provide body parameters for `text` and `type`.\n\nJoke ID will be autogenerated."
+			},
+			"response": [
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "text",
+									"value": "Iamonthemoonandthereisnowheretogetabeer. Thereisnospacebar.",
+									"type": "text"
+								},
+								{
+									"key": "type",
+									"value": "Science",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/jokes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"jokes"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "104"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"68-tXEColDukjT9EWupiNWhhvIkYok\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 27 Jul 2023 11:34:43 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 101,\n    \"jokeText\": \"Iamonthemoonandthereisnowheretogetabeer. Thereisnospacebar.\",\n    \"jokeType\": \"Science\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Add Product to Cart",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjozLCJpYXQiOjE3MDg3NTk0NDZ9.Wda-ze6W1Gd4H9Wm4KxV7Ijq1-PhhR_LIM2xb-fqQhw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"userid\": 8,\r\n  \"productid\": 15,\r\n  \"quantity\": 5\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/cart/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"cart",
+						"add"
+					]
+				},
+				"description": "Completely replace a joke based on the path parameter id specified.\n\nProvide the replacement values for the `text` and `type`."
+			},
+			"response": [
+				{
+					"name": "Replace Joke",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "text",
+									"value": "Why did the scarecrow win a prize? Because he was outstanding in his field.",
+									"type": "text"
+								},
+								{
+									"key": "type",
+									"value": "Science",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/jokes/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"jokes",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "118"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"76-mng0cjGno2lwfK8NTHNjTKx+Eo4\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 27 Jul 2023 11:34:35 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 2,\n    \"jokeText\": \"Why did the scarecrow win a prize? Because he was outstanding in his field.\",\n    \"jokeType\": \"Science\"\n}"
+				}
+			]
+		},
+		{
+			"name": "View Cart",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjozLCJpYXQiOjE3MDg3NTk0NDZ9.Wda-ze6W1Gd4H9Wm4KxV7Ijq1-PhhR_LIM2xb-fqQhw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/cart",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"cart"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Remove from cart",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjozLCJpYXQiOjE3MDg3NTk0NDZ9.Wda-ze6W1Gd4H9Wm4KxV7Ijq1-PhhR_LIM2xb-fqQhw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/cart/remove/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"cart",
+						"remove",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Place an order",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjozLCJpYXQiOjE3MDg3NTk0NDZ9.Wda-ze6W1Gd4H9Wm4KxV7Ijq1-PhhR_LIM2xb-fqQhw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userid\": 3,\r\n    \"items\": 3\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/order/place",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"order",
+						"place"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Order history",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjozLCJpYXQiOjE3MDg3NTk0NDZ9.Wda-ze6W1Gd4H9Wm4KxV7Ijq1-PhhR_LIM2xb-fqQhw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/order/history/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"order",
+						"history",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All Products",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/products/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"products",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
